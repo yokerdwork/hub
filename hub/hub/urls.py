@@ -21,6 +21,6 @@ from django.urls import path, include
 from forum.views import *
 
 urlpatterns = [
-    path( 'admin/', admin.site.urls),
-    path('forum/', include('forum.urls')),# доп маршрут на /форум
+    path('admin/', admin.site.urls),
+    # path('forum/', include('forum.urls')),# доп маршрут на /форум
 ]
