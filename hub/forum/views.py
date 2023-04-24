@@ -1,9 +1,12 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Страница приложения форум')
+    return HttpResponse('Стартовая страница')
 
-# def forum(request):
-#     return HttpResponse('Страница приложения форум')
+def forum(request, forumid):
+    return HttpResponse(f'<h1>Страница форум</h1><p>{forumid}</p>')
+
+def pageNotFound(request, exception):
+    return HttpResponseNotFound(f'<h1>Страница не найдена: 404</h1>')

@@ -22,5 +22,7 @@ from forum.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('forum/', include('forum.urls')),# доп маршрут на /форум
+    path('', include('forum.urls')),
 ]
+
+handler404 = pageNotFound
