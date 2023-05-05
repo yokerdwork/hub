@@ -22,7 +22,8 @@ from forum.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('forum.urls')),
+    path('', index, name='home'),
+    path('about/', about, name='about'),
 ]
 
 handler404 = pageNotFound

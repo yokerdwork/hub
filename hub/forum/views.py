@@ -3,7 +3,10 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Стартовая страница')
+    return render(request, 'forum/index.html')
+
+def about(request):
+    return render(request, 'forum/about.html')
 
 def forum(request, forumid):
     return HttpResponse(f'<h1>Страница форум</h1><p>{forumid}</p>')
