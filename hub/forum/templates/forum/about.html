@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Форум-начало работы</title>
-</head>
-<body>
-<h1>О форуме</h1>
-</body>
-</html>
+{% extends 'forum/base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<p>Содержимое страницы</p>
+{% endblock %}
