@@ -12,3 +12,7 @@ class forum(models.Model):
     comment_time_create = models.DateTimeField(auto_now_add=True)
     comment_time_update = models.DateTimeField(auto_now=True)
     comment_photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
+
+    def __str__(self):
+        return self.title
+

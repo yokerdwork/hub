@@ -1,18 +1,70 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
+
 from .models import *
 
 # Create your views here.
-menu = ["Главная страница", "Обновления", "О системе", "Обратная связь", "Войти"]
+menu = [{'title': "О сайте", 'url_name': 'about'},
+        {'title': "Документация", 'url_name': 'forum_start'},
+        {'title': "Обратная связь", 'url_name': 'feed_back'},
+        {'title': "Войти", 'url_name': 'login'}
+]
 def index(request):
-    return render(request, 'forum/index.html', {'menu': menu, 'title': 'Главная страница'})
+    posts = forum.objects.all()
+    context = {
+        'posts': posts,
+        'menu': menu,
+        'title': 'Главная страница',
+    }
+    return render(request, 'forum/index.html', context=context)
 
 def about(request):
-    return render(request, 'forum/about.html', {'menu': menu, 'title': 'О форуме'})
+    return render(request, 'forum/about.html', {'menu': menu, 'title': 'О проекте'})
 
-def forum(request, forumid):
+def forum_start_page(request, forumid):
     return HttpResponse(f'<h1>Страница форум</h1><p>{forumid}</p>')
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound(f'<h1>Страница не найдена: 404</h1>')
 
+def forum_start(request):
+    context = {
+        'menu': menu,
+        'title': 'Судебный календарь',
+    }
+    return render(request, 'forum/forumstart.html', context=context)
+
+def login(request):
+    return HttpResponse('Вход в систему')
+
+def show_post(request, post_id):
+    return HttpResponse(f'Отображение статьи с id = {post_id}')
+
+def template_hub(request):
+    posts = forum.objects.all()
+    context = {
+        'posts': posts,
+        'menu': menu,
+        'title': 'Шаблоны',
+    }
+    return render(request, 'forum/templatehub.html', context=context)
+
+def legal_calendar(request):
+    context = {
+        'menu': menu,
+        'title': 'Судебный календарь',
+    }
+    return render(request, 'forum/legalcalendar.html', context=context)
+def card_index(request):
+    context = {
+        'menu': menu,
+        'title': 'Картотека',
+    }
+    return render(request, 'forum/cardindex.html', context=context)
+
+def feed_back(request):
+    context = {
+        'menu': menu,
+        'title': 'Обратная связь',
+    }
+    return render(request, 'forum/feedback.html', context=context)

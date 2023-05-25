@@ -18,12 +18,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import template_hub
 from forum.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'),
     path('about/', about, name='about'),
+    path('forum/start', forum_start, name='forum_start'),
+    path('feedback', feed_back, name='feed_back'),
+    path('login', login, name='login'),
+    path('templatehub', template_hub, name='template_hub'),
+    path('legalcalendar', legal_calendar, name='legal_calendar'),
+    path('cardindex', card_index, name='card_index'),
 ]
 
 handler404 = pageNotFound
