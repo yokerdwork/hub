@@ -16,9 +16,8 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
-import template_hub
 from forum.views import *
 
 urlpatterns = [

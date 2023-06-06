@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
 from .models import *
+from template_hub.models import *
 
 # Create your views here.
 menu = [{'title': "О сайте", 'url_name': 'about'},
@@ -30,7 +31,7 @@ def pageNotFound(request, exception):
 def forum_start(request):
     context = {
         'menu': menu,
-        'title': 'Судебный календарь',
+        'title': 'Документация',
     }
     return render(request, 'forum/forumstart.html', context=context)
 
@@ -41,9 +42,7 @@ def show_post(request, post_id):
     return HttpResponse(f'Отображение статьи с id = {post_id}')
 
 def template_hub(request):
-    posts = forum.objects.all()
     context = {
-        'posts': posts,
         'menu': menu,
         'title': 'Шаблоны',
     }

@@ -10,4 +10,3 @@ class template_hub_models(models.Model):
     comment = models.TextField(blank=False)
     comment_time_create = models.DateTimeField(auto_now_add=True)
     comment_time_update = models.DateTimeField(auto_now=True)
-    comment_photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
