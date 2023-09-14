@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  postgres:
+    # Имя контейнера и образ для PostgreSQL
+    container_name: my_postgres
+    image: postgres:latest
+    restart: always
+    # Перенаправляем порт 5432 контейнера на порт 5432 хоста (внешнего окружения)
+    ports:
+      - "5432:5432"
+    # Передаем переменные окружения в контейнер
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    # Если нужно загрузить схему и данные, можно использовать volumes
+    # volumes:
+    #   - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    #   - ./data.sql:/docker-entrypoint-initdb.d/data.sql

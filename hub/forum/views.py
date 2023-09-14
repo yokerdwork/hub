@@ -54,14 +54,14 @@ def legal_calendar(request):
         'title': 'Судебный календарь',
     }
     return render(request, 'forum/legalcalendar.html', context=context)
-def card_index(request):
+def create_client(request):
     context = {
         'menu': menu,
         'title': 'Картотека',
     }
-    return render(request, 'forum/cardindex.html', context=context)
+    return render(request, 'forum/create_client.html', context=context)
 
-def feed_back(request):
+def feedback(request):
     context = {
         'menu': menu,
         'title': 'Обратная связь',

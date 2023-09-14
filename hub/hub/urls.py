@@ -25,11 +25,11 @@ urlpatterns = [
     path('', index, name='home'),
     path('about/', about, name='about'),
     path('forum/start', forum_start, name='forum_start'),
-    path('feedback', feed_back, name='feed_back'),
+    path('feedback', feedback, name='feed_back'),
     path('login', login, name='login'),
     path('templatehub', template_hub, name='template_hub'),
     path('legalcalendar', legal_calendar, name='legal_calendar'),
-    path('cardindex', card_index, name='card_index'),
+    path('createclient', create_client, name='create_client'),
 ]
 
 handler404 = pageNotFound
